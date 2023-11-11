@@ -5,6 +5,8 @@ namespace TaskWithYou.Client.ViewModelFactories.Cards
     public interface IViewModelFactory
     {
         CardListViewModel GetList();
+
+        CardCreateViewModel GenerateCreateViewModel();
     }
 
     public class ViewModelFacotry : IViewModelFactory
@@ -25,6 +27,12 @@ namespace TaskWithYou.Client.ViewModelFactories.Cards
                     };
                 })
                 .ToList();
+            return viewModel;
+        }
+
+        public CardCreateViewModel GenerateCreateViewModel() 
+        {
+            CardCreateViewModel viewModel = new();
             return viewModel;
         }
     }
