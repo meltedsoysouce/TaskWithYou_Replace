@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWithYou.Server", "TaskWithYou\Server\TaskWithYou.Server.csproj", "{321E8D05-70B2-4113-8305-BEB7101C0B41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskWithYou.Server", "TaskWithYou\Server\TaskWithYou.Server.csproj", "{321E8D05-70B2-4113-8305-BEB7101C0B41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWithYou.Client", "TaskWithYou\Client\TaskWithYou.Client.csproj", "{29413B7A-A0FA-46DE-9ACD-056C7CBCCD39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskWithYou.Client", "TaskWithYou\Client\TaskWithYou.Client.csproj", "{29413B7A-A0FA-46DE-9ACD-056C7CBCCD39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWithYou.Shared", "TaskWithYou\Shared\TaskWithYou.Shared.csproj", "{F685EF05-1365-4570-AB9D-C0654A45F8C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskWithYou.Shared", "TaskWithYou\Shared\TaskWithYou.Shared.csproj", "{F685EF05-1365-4570-AB9D-C0654A45F8C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

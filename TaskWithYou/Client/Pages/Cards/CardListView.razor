@@ -1,0 +1,13 @@
+﻿@page "/CardList"
+
+<h3>CardList</h3>
+
+@if (ViewModel is not null)
+{
+    <FluentDataGrid Items="ViewModel.CardList.AsQueryable()">
+        <PropertyColumn Property="@(item => item.Title)" Sortable="true" />
+        <PropertyColumn Property="@(item => item.CreateAt)" Sortable="true" />
+        <PropertyColumn Property="@(item => item.DeadLine)" Sortable="true" />
+        <PropertyColumn Property="@(item => item.Description)" Sortable="true" />
+    </FluentDataGrid>
+}

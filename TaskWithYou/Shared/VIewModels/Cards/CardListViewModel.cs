@@ -17,9 +17,10 @@ namespace TaskWithYou.Shared.VIewModels.Cards
 
         public string Title { get; set; }
 
-        public DateTime CreateAt { get;set; }
+        public DateTime CreateAt { get; set; }
 
         public DateTime? DeadLine { get; set; }
 
         public string Description { get; set; }
+    }
 }
