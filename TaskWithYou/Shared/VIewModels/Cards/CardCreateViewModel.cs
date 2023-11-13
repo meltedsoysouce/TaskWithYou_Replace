@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace TaskWithYou.Shared.VIewModels.Cards
+namespace TaskWithYou.Shared.ViewModels.Cards
 {
     public class CardCreateViewModel
     {

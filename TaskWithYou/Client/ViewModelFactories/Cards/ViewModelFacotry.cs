@@ -1,4 +1,4 @@
-﻿using TaskWithYou.Shared.VIewModels.Cards;
+﻿using TaskWithYou.Shared.ViewModels.Cards;
 
 namespace TaskWithYou.Client.ViewModelFactories.Cards
 {

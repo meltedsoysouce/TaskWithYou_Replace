@@ -2,8 +2,12 @@
 
 <h3>CardList</h3>
 
+<_CardCreateModal @ref="CardCreateModal"/>
+
 @if (ViewModel is not null)
 {
+    <FluentButton Appearance="Appearance.Accent" OnClick="AsyncInvokeCreateCardModal">カードの発行</FluentButton>
+
     <FluentDataGrid Items="ViewModel.CardList.AsQueryable()">
         <PropertyColumn Property="@(item => item.Title)" Sortable="true" />
         <PropertyColumn Property="@(item => item.CreateAt)" Sortable="true" />

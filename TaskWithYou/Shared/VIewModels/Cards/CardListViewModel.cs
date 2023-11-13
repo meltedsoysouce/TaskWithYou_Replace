@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskWithYou.Shared.VIewModels.Cards
+namespace TaskWithYou.Shared.ViewModels.Cards
 {
     public class CardListViewModel
     {
