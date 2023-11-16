@@ -7,6 +7,8 @@ namespace TaskWithYou.Client.ViewModelFactories.Cards
         CardListViewModel GetList();
 
         CardCreateViewModel GenerateCreateViewModel();
+
+        CardRemoveViewModel GetRemoveViewModel(Guid Uid);
     }
 
     public class ViewModelFacotry : IViewModelFactory
@@ -34,6 +36,11 @@ namespace TaskWithYou.Client.ViewModelFactories.Cards
         {
             CardCreateViewModel viewModel = new();
             return viewModel;
+        }
+
+        public CardRemoveViewModel GetRemoveViewModel(Guid Uid)
+        {
+            return new();
         }
     }
 }
