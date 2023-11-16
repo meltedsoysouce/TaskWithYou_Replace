@@ -52,7 +52,7 @@ namespace TaskWithYou.Client.Pages.Cards
                     ViewModelFacotry.GetRemoveViewModel(Guid.Empty),
                     new DialogParameters()
                     {
-                        Title = "カードの新規作成",
+                        Title = "カードの削除",
                         Modal = true
                     }
                 );

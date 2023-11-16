@@ -14,7 +14,6 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
     <PackageReference Include="Microsoft.Fast.Components.FluentUI" Version="3.3.0" />
     <PackageReference Include="Microsoft.Fast.Templates.FluentUI" Version="3.3.0" />
-    <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>

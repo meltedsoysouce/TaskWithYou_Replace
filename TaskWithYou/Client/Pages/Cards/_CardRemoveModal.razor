@@ -1,7 +1,29 @@
 ﻿@using TaskWithYou.Shared.ViewModels.Cards;
+@using Microsoft.Fast.Components.FluentUI;
 @implements IDialogContentComponent<CardRemoveViewModel>
 
 @if (Content is not null)
 {
-    <h3>hi</h3>
+    <EditForm Model="@Content">
+        <FluentStack Orientation="Orientation.Vertical" 
+            HorizontalAlignment="@HorizontalAlignment.Center"
+            VerticalAlignment="@VerticalAlignment.Top">
+            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                VerticalAlignment="@VerticalAlignment.Center">
+                タイトル：@Content.Title
+            </FluentStack>
+            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                VerticalAlignment="@VerticalAlignment.Center">
+                作成日：@Content.CreateAt
+            </FluentStack>
+            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                VerticalAlignment="@VerticalAlignment.Center">
+                締め切り：@Content.DeadLine
+            </FluentStack>
+            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                VerticalAlignment="@VerticalAlignment.Center">
+                内容：@Content.DeadLine
+            </FluentStack>
+        </FluentStack>
+    </EditForm>
 }

@@ -40,7 +40,13 @@ namespace TaskWithYou.Client.ViewModelFactories.Cards
 
         public CardRemoveViewModel GetRemoveViewModel(Guid Uid)
         {
-            return new();
+            return new()
+            {
+                Title = "test",
+                CreateAt = DateTime.Now,
+                DeadLine = DateTime.Now,
+                Description = "表示テスト"
+            };
         }
     }
 }
