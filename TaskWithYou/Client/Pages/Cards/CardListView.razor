@@ -4,6 +4,7 @@
 
 <_CardCreateModal @ref="CardCreateModal"/>
 <_CardRemoveModal @ref="CardRemoveModal" />
+<_CardEditModal @ref="CardEditModal" />
 
 @if (ViewModel is not null)
 {
@@ -16,6 +17,7 @@
         <PropertyColumn Property="@(item => item.Description)" Sortable="true" />
         <TemplateColumn Title="Actions" Align="@Align.End">
             <FluentButton Appearance="@Appearance.Stealth" OnClick="AsyncInvokeRemoveCardModal">削除</FluentButton>
+            <FluentButton Appearance="@Appearance.Lightweight" OnClick="AsyncInvokeEditCardModal">編集</FluentButton>
         </TemplateColumn> 
     </FluentDataGrid>
 }

@@ -43,6 +43,26 @@ namespace TaskWithYou.Client.Pages.Cards
         }
         #endregion
 
+        #region カード更新モーダル
+        private _CardEditModal CardEditModal { get; set; }
+
+        private async Task AsyncInvokeEditCardModal()
+        {
+            var dialog = await DialogService
+                .ShowDialogAsync<_CardEditModal>(
+                    ViewModelFacotry.GetEditViewModel(Guid.Empty),
+                    new DialogParameters()
+                    {
+                        Title = "カードの編集",
+                        Modal = true
+                    }
+                );
+
+            var result = await dialog.Result;
+            var date = result.Data as CardEditViewModel;
+        }
+        #endregion
+
         #region カード削除モーダル
         private _CardRemoveModal CardRemoveModal { get; set;}
         private async Task AsyncInvokeRemoveCardModal()
@@ -61,5 +81,6 @@ namespace TaskWithYou.Client.Pages.Cards
             var date = result.Data as CardRemoveViewModel;
         }
         #endregion
+
     }
 }

@@ -1,0 +1,24 @@
+﻿@using TaskWithYou.Shared.ViewModels.Cards;
+@implements IDialogContentComponent<CardEditViewModel>
+
+@if (Content is not null)
+{
+    <EditForm Model="@Content">
+        <FluentInputLabel>
+            タイトル
+            <FluentTextField @bind-Value="Content.Title" />
+        </FluentInputLabel>
+        <FluentInputLabel>
+            作成日
+            <InputDate @bind-Value="Content.CreateAt" />
+        </FluentInputLabel>
+        <FluentInputLabel>
+            締め切り
+            <InputDate @bind-Value="Content.DeadLine" />
+        </FluentInputLabel>
+        <FluentInputLabel>
+            詳細
+            <FluentTextArea @bind-Value="Content.Description" />
+        </FluentInputLabel>
+    </EditForm>
+}
