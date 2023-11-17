@@ -8,7 +8,7 @@ namespace TaskWithYou.Client.ViewModelFactories.Cards
 
         CardCreateViewModel GenerateCreateViewModel();
 
-        CardEditViewModel GetEditViewModel();
+        CardEditViewModel GetEditViewModel(Guid Uid);
 
         CardRemoveViewModel GetRemoveViewModel(Guid Uid);
     }
@@ -40,10 +40,11 @@ namespace TaskWithYou.Client.ViewModelFactories.Cards
             return viewModel;
         }
 
-        public CardEditViewModel GetEditViewModel()
+        public CardEditViewModel GetEditViewModel(Guid Uid)
         {
             return new()
             {
+                Uid = Uid,
                 Title = "test",
                 CreateAt = DateTime.Now,
                 DeadLine = DateTime.Now,
