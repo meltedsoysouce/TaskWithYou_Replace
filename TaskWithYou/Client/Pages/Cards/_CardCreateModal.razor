@@ -1,35 +1,48 @@
-﻿@using TaskWithYou.Shared.ViewModels.Cards;
-@implements IDialogContentComponent<CardCreateViewModel>
-
-@if (Content is not null)
-{
-    <EditForm Model="@Content">
-        <FluentStack Orientation="Orientation.Vertical"
-            HorizontalAlignment="@HorizontalAlignment.Center"
-            VertifcalAlignment="@VerticalAlignment.Center"
-            HorizontalGap="10">
-            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
-                VerticalAlignment="@VerticalAlignment.Center">
-                <FluentInputLabel>
-                    タイトル
-                </FluentInputLabel>
-                <FluentTextField @bind-Value="Content.Title" />
-            </FluentStack>
-            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
-                VerticalAlignment="@VerticalAlignment.Center">
-                <FluentDatePicker Label="作成日" @bind-Value="@Content.CreateAt" ReadOnly/>
-            </FluentStack>
-            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
-                VerticalAlignment="@VerticalAlignment.Center">
-                <FluentDatePicker Label="期　限" @bind-Value="@Content.DeadLine" />
-            </FluentStack>
-            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
-                VerticalAlignment="@VerticalAlignment.Center">
-                <FluentInputLabel>
-                    詳　細
-                </FluentInputLabel>
-                <FluentTextArea @bind-Value="Content.Description" />
-            </FluentStack>
-        </FluentStack>
-    </EditForm>
-}
+﻿<FluentDialog @ref="Dialog" Modal="true" Hidden="IsModalHidden">
+    <FluentDialogHeader>カード作成</FluentDialogHeader>
+    <FluentDialogBody>
+        @if (ViewModel is not null)
+        {
+            <EditForm Model="@ViewModel">
+                <FluentStack Orientation="Orientation.Vertical"
+                    HorizontalAlignment="@HorizontalAlignment.Center"
+                    VertifcalAlignment="@VerticalAlignment.Center"
+                    HorizontalGap="10">
+                    <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                        VerticalAlignment="@VerticalAlignment.Center">
+                        <FluentInputLabel>
+                            タイトル
+                        </FluentInputLabel>
+                        <FluentTextField @bind-Value="ViewModel.Title" />
+                    </FluentStack>
+                    <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                        VerticalAlignment="@VerticalAlignment.Center">
+                        <FluentDatePicker Label="作成日" @bind-Value="@ViewModel.CreateAt" ReadOnly/>
+                    </FluentStack>
+                    <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                        VerticalAlignment="@VerticalAlignment.Center">
+                        <FluentDatePicker Label="期　限" @bind-Value="@ViewModel.DeadLine" />
+                    </FluentStack>
+                    <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                        VerticalAlignment="@VerticalAlignment.Center">
+                        <FluentInputLabel>
+                            詳　細
+                        </FluentInputLabel>
+                        <FluentTextArea @bind-Value="ViewModel.Description" />
+                    </FluentStack>
+                </FluentStack>
+            </EditForm>
+        }
+    </FluentDialogBody>
+    <FluentDialogFooter>
+        <div class="row justify-content-center mb-2">
+            <FluentButton
+                Type="@ButtonType.Button" 
+                Appearance="@Appearance.Outline" 
+                OnClick="@(async () => await Dialog.CloseAsync())"
+                class="col-3">
+                閉じる
+            </FluentButton>
+        </div>
+    </FluentDialogFooter>
+</FluentDialog>

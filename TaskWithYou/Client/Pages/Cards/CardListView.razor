@@ -8,7 +8,8 @@
 
 @if (ViewModel is not null)
 {
-    <FluentButton Appearance="Appearance.Accent" OnClick="AsyncInvokeCreateCardModal">カードの発行</FluentButton>
+    @* <FluentButton Appearance="Appearance.Accent" OnClick="AsyncInvokeCreateCardModal">カードの発行</FluentButton> *@
+    <FluentButton Appearance="Appearance.Accent" OnClick="@(() => CardCreateModal.OnShow())">カードの発行</FluentButton>
 
     <FluentDataGrid Items="ViewModel.CardList.AsQueryable()">
         <PropertyColumn Property="@(item => item.Title)" Sortable="true" />

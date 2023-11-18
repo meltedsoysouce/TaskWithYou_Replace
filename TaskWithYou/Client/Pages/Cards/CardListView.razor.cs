@@ -25,21 +25,21 @@ namespace TaskWithYou.Client.Pages.Cards
         // 将来的にはうまいことファイルを分割したい
         #region カード作成モーダル
         private _CardCreateModal CardCreateModal { get; set; }
-        private async Task AsyncInvokeCreateCardModal()
-        {
-            var dialog = await DialogService
-                .ShowDialogAsync<_CardCreateModal>(
-                    ViewModelFacotry.GenerateCreateViewModel(),
-                    new DialogParameters()
-                        {
-                            Title = "カードの新規作成",
-                            Modal = true,
-                            Height = "240px"
-                        });
+        // private async Task AsyncInvokeCreateCardModal()
+        // {
+        //     var dialog = await DialogService
+        //         .ShowDialogAsync<_CardCreateModal>(
+        //             ViewModelFacotry.GenerateCreateViewModel(),
+        //             new DialogParameters()
+        //                 {
+        //                     Title = "カードの新規作成",
+        //                     Modal = true,
+        //                     Height = "240px"
+        //                 });
             
-            var result = await dialog.Result;
-            var data = result.Data as CardCreateViewModel;
-        }
+        //     var result = await dialog.Result;
+        //     var data = result.Data as CardCreateViewModel;
+        // }
         #endregion
 
         #region カード更新モーダル
