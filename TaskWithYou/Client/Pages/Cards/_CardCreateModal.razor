@@ -4,21 +4,32 @@
 @if (Content is not null)
 {
     <EditForm Model="@Content">
-        <label>
-            タイトル
-            <FluentTextField @bind-Value="Content.Title" />
-        </label>
-        <label>
-            作成日
-            <InputDate @bind-Value="Content.CreateAt" />
-        </label>
-        <label>
-            締め切り
-            <InputDate @bind-Value="Content.DeadLine" />
-        </label>
-        <FluentInputLabel>
-            詳細
-            <FluentTextArea @bind-Value="Content.Description" />
-        </FluentInputLabel>
+        <FluentStack Orientation="Orientation.Vertical"
+            HorizontalAlignment="@HorizontalAlignment.Center"
+            VertifcalAlignment="@VerticalAlignment.Center"
+            HorizontalGap="10">
+            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                VerticalAlignment="@VerticalAlignment.Center">
+                <FluentInputLabel>
+                    タイトル
+                </FluentInputLabel>
+                <FluentTextField @bind-Value="Content.Title" />
+            </FluentStack>
+            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                VerticalAlignment="@VerticalAlignment.Center">
+                <FluentDatePicker Label="作成日" @bind-Value="@Content.CreateAt" ReadOnly/>
+            </FluentStack>
+            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                VerticalAlignment="@VerticalAlignment.Center">
+                <FluentDatePicker Label="期　限" @bind-Value="@Content.DeadLine" />
+            </FluentStack>
+            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                VerticalAlignment="@VerticalAlignment.Center">
+                <FluentInputLabel>
+                    詳　細
+                </FluentInputLabel>
+                <FluentTextArea @bind-Value="Content.Description" />
+            </FluentStack>
+        </FluentStack>
     </EditForm>
 }

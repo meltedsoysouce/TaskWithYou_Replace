@@ -16,8 +16,6 @@ namespace TaskWithYou.Client.Pages.Cards
 
         private CardListViewModel ViewModel { get; set; }
 
-        
-
         protected override void OnInitialized()
         {
             ViewModel = ViewModelFacotry.GetList();
@@ -35,7 +33,8 @@ namespace TaskWithYou.Client.Pages.Cards
                     new DialogParameters()
                         {
                             Title = "カードの新規作成",
-                            Modal = true
+                            Modal = true,
+                            Height = "240px"
                         });
             
             var result = await dialog.Result;
