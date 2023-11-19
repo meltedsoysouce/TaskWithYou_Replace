@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.Fast.Components.FluentUI;
+using Microsoft.FluentUI.AspNetCore.Components;
 using TaskWithYou.Client.ViewModelFactories.Cards;
 using TaskWithYou.Shared.ViewModels.Cards;
 

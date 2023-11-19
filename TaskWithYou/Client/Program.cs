@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Fast.Components.FluentUI;
+using Microsoft.FluentUI.AspNetCore.Components;
 using TaskWithYou.Client;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -17,7 +17,6 @@ builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().Cre
 // FluentUI‚Ì“±“ü
 builder.Services.AddFluentUIComponents(options =>
 {
-    options.HostingModel = BlazorHostingModel.WebAssembly;
 });
 
 // ViewModelFactory‚Ì“o˜^
