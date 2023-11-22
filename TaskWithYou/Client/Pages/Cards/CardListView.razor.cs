@@ -64,21 +64,21 @@ namespace TaskWithYou.Client.Pages.Cards
 
         #region カード削除モーダル
         private _CardRemoveModal CardRemoveModal { get; set;}
-        private async Task AsyncInvokeRemoveCardModal()
-        {
-            var dialog = await DialogService
-                .ShowDialogAsync<_CardRemoveModal>(
-                    ViewModelFacotry.GetRemoveViewModel(Guid.Empty),
-                    new DialogParameters()
-                    {
-                        Title = "カードの削除",
-                        Modal = true
-                    }
-                );
+        // private async Task AsyncInvokeRemoveCardModal()
+        // {
+        //     var dialog = await DialogService
+        //         .ShowDialogAsync<_CardRemoveModal>(
+        //             ViewModelFacotry.GetRemoveViewModel(Guid.Empty),
+        //             new DialogParameters()
+        //             {
+        //                 Title = "カードの削除",
+        //                 Modal = true
+        //             }
+        //         );
 
-            var result = await dialog.Result;
-            var date = result.Data as CardRemoveViewModel;
-        }
+        //     var result = await dialog.Result;
+        //     var date = result.Data as CardRemoveViewModel;
+        // }
         #endregion
 
     }

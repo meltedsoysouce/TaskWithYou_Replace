@@ -1,29 +1,41 @@
 ﻿@using TaskWithYou.Shared.ViewModels.Cards;
 @using Microsoft.FluentUI.AspNetCore.Components;
-@implements IDialogContentComponent<CardRemoveViewModel>
 
-@if (Content is not null)
-{
-    <EditForm Model="@Content">
-        <FluentStack Orientation="Orientation.Vertical" 
-            HorizontalAlignment="@HorizontalAlignment.Center"
-            VerticalAlignment="@VerticalAlignment.Top">
-            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
-                VerticalAlignment="@VerticalAlignment.Center">
-                タイトル：@Content.Title
-            </FluentStack>
-            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
-                VerticalAlignment="@VerticalAlignment.Center">
-                作成日：@Content.CreateAt
-            </FluentStack>
-            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
-                VerticalAlignment="@VerticalAlignment.Center">
-                締め切り：@Content.DeadLine
-            </FluentStack>
-            <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
-                VerticalAlignment="@VerticalAlignment.Center">
-                内容：@Content.DeadLine
-            </FluentStack>
-        </FluentStack>
-    </EditForm>
-}
+<FluentDialog Hidden="true" Modal="true" @ref="Dialog">
+    <FluentDialogHeader Dismiss="true">カードの削除</FluentDialogHeader>
+    <FluentDialogBody>
+        @if (ViewModel is not null)
+        {
+            <EditForm Model="@ViewModel">
+                <FluentStack Orientation="Orientation.Vertical" 
+                    HorizontalAlignment="@HorizontalAlignment.Center"
+                    VerticalAlignment="@VerticalAlignment.Top">
+                    <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                        VerticalAlignment="@VerticalAlignment.Center">
+                        タイトル：@ViewModel.Title
+                    </FluentStack>
+                    <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                        VerticalAlignment="@VerticalAlignment.Center">
+                        作成日：@ViewModel.CreateAt
+                    </FluentStack>
+                    <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                        VerticalAlignment="@VerticalAlignment.Center">
+                        締め切り：@ViewModel.DeadLine
+                    </FluentStack>
+                    <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                        VerticalAlignment="@VerticalAlignment.Center">
+                        内容：@ViewModel.DeadLine
+                    </FluentStack>
+                </FluentStack>
+            </EditForm>
+        }
+    </FluentDialogBody>
+    <FluentFooter>
+        <FluentButton
+            Type="@ButtonType.Button"
+            Appearance="@Appearance.Outline"
+            OnClick="@(async () => await Dialog.CloseAsync())">
+            閉じる
+        </FluentButton>
+    </FluentFooter>
+</FluentDialog>

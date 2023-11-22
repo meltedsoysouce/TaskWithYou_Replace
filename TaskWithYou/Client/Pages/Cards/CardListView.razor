@@ -18,7 +18,7 @@
         <PropertyColumn Property="@(item => item.Description)" Sortable="true" />
         <TemplateColumn Title="Actions" Align="@Align.End">
             <FluentButton Appearance="@Appearance.Lightweight" OnClick="@(() => CardEditModal.OnShow(context.Uid))">編集</FluentButton>
-            <FluentButton Appearance="@Appearance.Stealth" OnClick="AsyncInvokeRemoveCardModal">削除</FluentButton>
+            <FluentButton Appearance="@Appearance.Stealth" OnClick="@(() => CardRemoveModal.OnShow(context.Uid))">削除</FluentButton>
         </TemplateColumn> 
     </FluentDataGrid>
 }
