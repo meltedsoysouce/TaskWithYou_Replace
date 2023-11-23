@@ -22,65 +22,14 @@ namespace TaskWithYou.Client.Pages.Cards
             base.OnInitialized();
         }
 
-        // 将来的にはうまいことファイルを分割したい
-        #region カード作成モーダル
+        # region 各種モーダル
         private _CardCreateModal CardCreateModal { get; set; }
-        // private async Task AsyncInvokeCreateCardModal()
-        // {
-        //     var dialog = await DialogService
-        //         .ShowDialogAsync<_CardCreateModal>(
-        //             ViewModelFacotry.GenerateCreateViewModel(),
-        //             new DialogParameters()
-        //                 {
-        //                     Title = "カードの新規作成",
-        //                     Modal = true,
-        //                     Height = "240px"
-        //                 });
-            
-        //     var result = await dialog.Result;
-        //     var data = result.Data as CardCreateViewModel;
-        // }
-        #endregion
 
-        #region カード更新モーダル
         private _CardEditModal CardEditModal { get; set; }
-
-        // private async Task AsyncInvokeEditCardModal()
-        // {
-        //     var dialog = await DialogService
-        //         .ShowDialogAsync<_CardEditModal>(
-        //             ViewModelFacotry.GetEditViewModel(Guid.Empty),
-        //             new DialogParameters()
-        //             {
-        //                 Title = "カードの編集",
-        //                 Modal = true
-        //             }
-        //         );
-
-        //     var result = await dialog.Result;
-        //     var date = result.Data as CardEditViewModel;
-        // }
-        #endregion
-
-        #region カード削除モーダル
+        
         private _CardRemoveModal CardRemoveModal { get; set;}
-        // private async Task AsyncInvokeRemoveCardModal()
-        // {
-        //     var dialog = await DialogService
-        //         .ShowDialogAsync<_CardRemoveModal>(
-        //             ViewModelFacotry.GetRemoveViewModel(Guid.Empty),
-        //             new DialogParameters()
-        //             {
-        //                 Title = "カードの削除",
-        //                 Modal = true
-        //             }
-        //         );
-
-        //     var result = await dialog.Result;
-        //     var date = result.Data as CardRemoveViewModel;
-        // }
-        #endregion
 
         private _CardDetailModal CardDetailModal { get; set; }
+        #endregion
     }
 }
