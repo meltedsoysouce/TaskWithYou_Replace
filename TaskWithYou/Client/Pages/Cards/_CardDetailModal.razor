@@ -1,0 +1,38 @@
+﻿@using Microsoft.FluentUI.AspNetCore.Components;
+
+<FluentDialog @ref="Dialog" Modal="true" Hidden="true">
+    <FluentDialogHeader>カード詳細</FluentDialogHeader>
+    <FluentDialogBody>
+        @if (ViewModel is not null)
+        {
+            <FluentStack Orientation="Orientation.Vertical" 
+                        HorizontalAlignment="@HorizontalAlignment.Center"
+                        VerticalAlignment="@VerticalAlignment.Top">
+                <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                    VerticalAlignment="@VerticalAlignment.Center">
+                    タイトル：@ViewModel.Title
+                </FluentStack>
+                <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                    VerticalAlignment="@VerticalAlignment.Center">
+                    作成日：@ViewModel.CreateAt
+                </FluentStack>
+                <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                    VerticalAlignment="@VerticalAlignment.Center">
+                    締め切り：@ViewModel.DeadLine
+                </FluentStack>
+                <FluentStack HorizontalAlignment="@HorizontalAlignment.Left"
+                    VerticalAlignment="@VerticalAlignment.Center">
+                    内容：@ViewModel.DeadLine
+                </FluentStack>
+            </FluentStack>
+        }
+    </FluentDialogBody>
+    <FluentDialogFooter>
+        <FluentButton
+            Type="@ButtonType.Button" 
+            Appearance="@Appearance.Outline" 
+            OnClick="@(async () => await Dialog.CloseAsync())">
+            閉じる
+        </FluentButton>
+    </FluentDialogFooter>
+</FluentDialog>

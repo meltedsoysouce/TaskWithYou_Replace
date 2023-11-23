@@ -81,5 +81,6 @@ namespace TaskWithYou.Client.Pages.Cards
         // }
         #endregion
 
+        private _CardDetailModal CardDetailModal { get; set; }
     }
 }
