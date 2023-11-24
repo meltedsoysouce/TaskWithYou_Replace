@@ -10,16 +10,15 @@ namespace TaskWithYou.Client.Pages.Cards
         [Inject]
         private IViewModelFactory ViewModelFacotry { get; set; }
 
-        // FluentUIでDialogを表示させるのに使用
         [Inject]
-        private IDialogService DialogService { get; set; }
+        private HttpClient HttpClient { get; set; }
 
         private CardListViewModel ViewModel { get; set; }
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
-            ViewModel = ViewModelFacotry.GetList();
-            base.OnInitialized();
+            ViewModel = await ViewModelFacotry.GetList(HttpClient);
+            await base.OnInitializedAsync();
         }
 
         # region 各種モーダル

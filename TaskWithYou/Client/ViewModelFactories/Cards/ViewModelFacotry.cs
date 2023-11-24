@@ -1,10 +1,12 @@
-﻿using TaskWithYou.Shared.ViewModels.Cards;
+﻿using Microsoft.AspNetCore.Components;
+using System.Net.Http.Json;
+using TaskWithYou.Shared.ViewModels.Cards;
 
 namespace TaskWithYou.Client.ViewModelFactories.Cards
 {
     public interface IViewModelFactory
     {
-        CardListViewModel GetList();
+        Task<CardListViewModel> GetList(HttpClient Client);
 
         CardDetailViewModel GetDetail(Guid Uid);
 
@@ -17,23 +19,12 @@ namespace TaskWithYou.Client.ViewModelFactories.Cards
 
     public class ViewModelFacotry : IViewModelFactory
     {
-        public CardListViewModel GetList()
+        [Inject]
+        private HttpClient HttpClient { get; set; }
+
+        public async Task<CardListViewModel> GetList(HttpClient Client)
         {
-            CardListViewModel viewModel = new ();
-            viewModel.CardList = Enumerable.Range(0, 5)
-                .Select(x =>
-                {
-                    return new CardListItem()
-                    {
-                        Uid = Guid.Empty,
-                        Title = $"test {x}",
-                        CreateAt = DateTime.Today,
-                        DeadLine = null,
-                        Description = $"This is a test {x}"
-                    };
-                })
-                .ToList();
-            return viewModel;
+            return await Client.GetFromJsonAsync<CardListViewModel>("/api/CardContent");
         }
 
         public CardCreateViewModel GenerateCreateViewModel() 
