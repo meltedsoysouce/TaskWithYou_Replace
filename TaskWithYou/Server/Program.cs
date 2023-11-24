@@ -10,16 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 //var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //    options.UseSqlServer(connectionString));
-var connectionString = builder.Configuration["PostgresqlConnection"];
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+var connectionString = builder.Configuration["AuthDBConnection"];
+builder.Services.AddDbContext<AuthDBContext>(options =>
     options.UseNpgsql(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+    .AddEntityFrameworkStores<AuthDBContext>();
 
 builder.Services.AddIdentityServer()
-    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+    .AddApiAuthorization<ApplicationUser, AuthDBContext>();
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt()
@@ -29,6 +29,10 @@ builder.Services.AddAuthentication()
         options.ClientSecret = builder.Configuration["ClientSecret"];
         options.CallbackPath = "/singin-google";
     });
+
+builder.Services.AddDbContext<TaskWithYouAppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration["ApplicationDBConnection"])
+);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();

@@ -9,7 +9,7 @@ using TaskWithYou.Server.Data;
 
 namespace TaskWithYou.Server.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(AuthDBContext))]
     [Migration("00000000000000_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {
