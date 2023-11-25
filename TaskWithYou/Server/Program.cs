@@ -1,15 +1,12 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
+using TaskWithYou.Server;
 using TaskWithYou.Server.Data;
 using TaskWithYou.Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-//builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//    options.UseSqlServer(connectionString));
 var connectionString = builder.Configuration["AuthDBConnection"];
 builder.Services.AddDbContext<AuthDBContext>(options =>
     options.UseNpgsql(connectionString));
@@ -30,9 +27,12 @@ builder.Services.AddAuthentication()
         options.CallbackPath = "/singin-google";
     });
 
+var appconnectionString = builder.Configuration["ApplicationDBConnection"];
 builder.Services.AddDbContext<TaskWithYouAppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration["ApplicationDBConnection"])
-);
+    options.UseNpgsql(appconnectionString)
+); ;
+
+//SetupDB.GenerateDemoData(appconnectionString);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
