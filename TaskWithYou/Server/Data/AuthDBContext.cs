@@ -10,7 +10,7 @@ namespace TaskWithYou.Server.Data
     public class AuthDBContext : ApiAuthorizationDbContext<ApplicationUser>
     {
         public AuthDBContext(
-            DbContextOptions options,
+            DbContextOptions<AuthDBContext> options,
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
