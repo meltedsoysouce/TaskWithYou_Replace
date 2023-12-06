@@ -30,7 +30,7 @@ builder.Services.AddAuthentication()
 var appconnectionString = builder.Configuration["ApplicationDBConnection"];
 builder.Services.AddDbContext<TaskWithYouAppDbContext>(options =>
     options.UseNpgsql(appconnectionString)
-); ;
+);
 
 //SetupDB.GenerateDemoData(appconnectionString);
 

@@ -17,7 +17,7 @@ namespace TaskWithYou.Shared.ViewModels.Cards
 
         public string Title { get; set; }
 
-        public DateTime CreateAt { get; set; }
+        public DateTime? CreateAt { get; set; }
 
         public DateTime? DeadLine { get; set; }
 

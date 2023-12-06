@@ -19,8 +19,6 @@ namespace TaskWithYou.Client.ViewModelFactories.Cards
 
     public class ViewModelFacotry : IViewModelFactory
     {
-        [Inject]
-        private HttpClient HttpClient { get; set; }
 
         public async Task<CardListViewModel> GetList(HttpClient Client)
         {

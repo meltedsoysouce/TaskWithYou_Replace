@@ -14,8 +14,8 @@ namespace TaskWithYou.Client.Tests.ViewModelFactories.Cards
         public void GetListValueTypeCheck()
         {
             ViewModelFacotry factory = new();
-            var listViewModel = factory.GetList();
-            Assert.IsType<CardListViewModel>(listViewModel);
+            var listViewModel = factory.GetList(new HttpClient());
+            Assert.IsType<Task<CardListViewModel>>(listViewModel);
         }
 
         [Fact(DisplayName="CardDetailViewModelが出力されているかの確認")]

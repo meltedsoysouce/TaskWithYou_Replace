@@ -9,7 +9,7 @@ namespace TaskWithYou.Server.Data
         {
         }
 
-        DbSet<CardContent> CardContents { get; set; }
+        public DbSet<CardContent> CardContents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

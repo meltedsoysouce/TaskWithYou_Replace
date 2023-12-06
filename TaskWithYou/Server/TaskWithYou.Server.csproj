@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\DateTimeIntegerUtility\DateTimeIntegerUtility.csproj" />
     <ProjectReference Include="..\Client\TaskWithYou.Client.csproj" />
     <ProjectReference Include="..\Shared\TaskWithYou.Shared.csproj" />
   </ItemGroup>
